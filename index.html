@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Matchmaking</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background: #d63384; color: white; padding: 20px; font-size: 24px; }
+        section { padding: 20px; }
+        footer { background: #d63384; color: white; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .form-group { margin: 10px 0; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; }
+        .form-group button { background: #d63384; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+    <script>
+        function updatePrice() {
+            let country = document.getElementById("preferredCountry").value;
+            let priceText = document.getElementById("priceText");
+            
+            if (country === "UK" || country === "USA" || country === "Canada") {
+                priceText.innerHTML = "<strong>Service Fee:</strong> $100 (Local Bank Transfer)";
+            } else {
+                priceText.innerHTML = "<strong>Service Fee:</strong> $50 (Local Bank Transfer)";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>Global Matchmaking - Find Your Life Partner</header>
+    
+    <section class="container">
+        <h2>Sign Up</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <select required>
+                    <option value="">Looking for...</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="container">
+        <h2>Request a Match</h2>
+        <p>Submit your request, and we will find a suitable match for you. Payment is required before receiving match details.</p>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Your Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Preferred Match (e.g., British Woman)" required>
+            </div>
+            <div class="form-group">
+                <select required>
+                    <option value="">Preferred Age Range</option>
+                    <option value="18-25">18-25</option>
+                    <option value="26-35">26-35</option>
+                    <option value="36-45">36-45</option>
+                    <option value="46+">46+</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select required>
+                    <option value="">Preferred Religion</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Christianity">Christianity</option>
+                    <option value="Hinduism">Hinduism</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select id="preferredCountry" required onchange="updatePrice()">
+                    <option value="">Preferred Country</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="USA">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Describe the qualities you are looking for" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <p id="priceText"><strong>Service Fee:</strong> $100 (Local Bank Transfer)</p>
+                <button type="submit">Submit & Pay</button>
+            </div>
+        </form>
+    </section>
+    
+    <footer>&copy; 2025 Global Matchmaking</footer>
+</body>
+</html>
